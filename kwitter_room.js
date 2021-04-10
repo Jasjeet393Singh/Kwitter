@@ -1,4 +1,14 @@
-//ADD Firebase Links
+var firebaseConfig = {
+    apiKey: "AIzaSyD1jW-pmPtK3DeL27IwHmTGTtIsHouNsck",
+    authDomain: "kwitter-a96cd.firebaseapp.com",
+    databaseURL: "https://kwitter-a96cd-default-rtdb.firebaseio.com",
+    projectId: "kwitter-a96cd",
+    storageBucket: "kwitter-a96cd.appspot.com",
+    messagingSenderId: "784695306947",
+    appId: "1:784695306947:web:27ba18c0be2aa64ab51076",
+    measurementId: "G-MDD5MXL5XL"
+  };
+  firebase.initializeApp(firebaseConfig);
 
 user_name = localStorage.getItem("user_name");
 
@@ -38,5 +48,5 @@ function redirectToRoomName(name) {
 function logout() {
     localStorage.removeItem("user_name");
     localStorage.removeItem("room_name");
-    window.location = "kwitter.html";
+    window.location = "index.html";
 }

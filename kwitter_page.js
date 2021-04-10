@@ -1,4 +1,14 @@
-//FIREBASE LINKS
+var firebaseConfig = {
+    apiKey: "AIzaSyD1jW-pmPtK3DeL27IwHmTGTtIsHouNsck",
+    authDomain: "kwitter-a96cd.firebaseapp.com",
+    databaseURL: "https://kwitter-a96cd-default-rtdb.firebaseio.com",
+    projectId: "kwitter-a96cd",
+    storageBucket: "kwitter-a96cd.appspot.com",
+    messagingSenderId: "784695306947",
+    appId: "1:784695306947:web:27ba18c0be2aa64ab51076",
+    measurementId: "G-MDD5MXL5XL"
+  };
+  firebase.initializeApp(firebaseConfig);
 
 user_name = localStorage.getItem("user_name");
 room_name = localStorage.getItem("room_name");
@@ -14,8 +24,7 @@ function send() {
     document.getElementById("msg").value = "";
 }
 
-function getData() { firbase.database.ref("/"+room_name).on('value', function (snapshot)  { document.getElementById("output").innerHTML = ""; snapshot.forEach(function(childSnapshot)  {childKey
-= childSnapshot.key; childData = childSnapshot.val(); if(childKey != "purpose")  {
+function getData() { firebase.database.ref("/"+room_name).on('value', function (snapshot)  { document.getElementById("output").innerHTML = ""; snapshot.forEach(function(childSnapshot)  {childKey = childSnapshot.key; childData = childSnapshot.val(); if(childKey != "purpose")  {
     firebase_message_id = childKey;
     message_data = childData;
     console.log(firebase_message_id);
@@ -48,5 +57,5 @@ function updateLike(message_id) {
 function logout() {
     localStorage.removeItem("user_name");
     localStorage.removeItem("room_name");
-    window.location.replace("kwitter.html");
+    window.location.replace("index.html");
 }
